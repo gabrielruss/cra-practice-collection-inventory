@@ -27,6 +27,9 @@ class Header extends React.Component {
         <Menu.Item key="home">
           <NavLink to="/">Home</NavLink>
         </Menu.Item>
+        <Menu.Item key="inventory">
+          <NavLink to="/inventory">Inventory</NavLink>
+        </Menu.Item>
         <Menu.Item key="about">
           <NavLink to="/about">About</NavLink>
         </Menu.Item>
