@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
+import { Switch, Route } from 'react-router-dom';
 import HomePage from './home/HomePage';
+import AboutPage from './about/AboutPage';
 import Header from './common/Header';
 
 class App extends Component {
@@ -8,8 +10,10 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <HomePage />
-        {/* PUT ROUTING HERE */}
+        <Switch>
+          <Route exact path="/" component={HomePage}/>
+          <Route path="/about" component={AboutPage}/>
+        </Switch>
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { Menu } from 'antd';
 
 class Header extends React.Component {
@@ -22,11 +23,12 @@ class Header extends React.Component {
       onClick={this._handleClick}
       mode="horizontal"
       selectedKeys={[this.state.current]}>
+      
         <Menu.Item key="home">
-        Home
+          <NavLink to="/">Home</NavLink>
         </Menu.Item>
         <Menu.Item key="about">
-        About
+          <NavLink to="/about">About</NavLink>
         </Menu.Item>
       </Menu>
     );
