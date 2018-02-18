@@ -1,20 +1,18 @@
 import React from 'react';
 import { Table } from 'semantic-ui-react';
 
-const makeRow = (game) => {
+const makeRow = (game, index) => {
   return (
-    <Table.Body>
-      <Table.Row>
-        <Table.Cell>{game.name}</Table.Cell>
-        <Table.Cell>{game.description}</Table.Cell>
-        <Table.Cell>{game.console}</Table.Cell>
-      </Table.Row>
-    </Table.Body>
+    <Table.Row key={index}>
+      <Table.Cell>{game.name}</Table.Cell>
+      <Table.Cell>{game.description}</Table.Cell>
+      <Table.Cell>{game.console}</Table.Cell>
+    </Table.Row>
   );
 };
 
-const InventoryDisplay = (props) => {
-  const myProps = props.props[0];
+const InventoryDisplay = ({ inventory }) => {
+  console.log(inventory);
   return (
     <Table celled>
       <Table.Header>
@@ -24,7 +22,9 @@ const InventoryDisplay = (props) => {
           <Table.HeaderCell>Console</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
-      {makeRow(myProps)}
+      <Table.Body >
+        {inventory.map(makeRow)}
+      </Table.Body>
     </Table>
   );
 };

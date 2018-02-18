@@ -3,19 +3,24 @@ import { Grid, Header, Form } from 'semantic-ui-react'
 import InventoryDisplay from './InventoryDisplay';
 import '../../styles/App.css';
 
-const initialState = {
+const initialState = [{
   key: '1',
   name: "The Legend of Zelda",
   description: "The Legend of Zelda is the first installment of the Zelda series.",
   console: "NES"
-};
+}, {
+  key: '2',
+  name: "Zelda II",
+  description: "Zelda II is a hard game...but fun as well.",
+  console: "NES"
+}];
 
 class ManageInventory extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      inventory: [initialState]
+      inventory: initialState
     };
   }
 
@@ -37,7 +42,7 @@ class ManageInventory extends React.Component {
             </Form.Group>
           </Grid.Column>
           <Grid.Column width={10} className="nice-border">
-            <InventoryDisplay props={this.state.inventory} />
+            <InventoryDisplay inventory={this.state.inventory} />
           </Grid.Column>
         </Grid.Row>
       </Grid>
