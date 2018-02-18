@@ -12,7 +12,6 @@ const makeRow = (game, index) => {
 };
 
 const InventoryDisplay = ({ inventory }) => {
-  console.log(inventory);
   return (
     <Table celled>
       <Table.Header>
