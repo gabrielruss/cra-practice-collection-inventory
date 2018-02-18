@@ -1,37 +1,35 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Menu } from 'antd';
+import { Menu } from 'semantic-ui-react';
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      current: 'home'
+      activeItem: 'home'
     };
   }
 
-  _handleClick = (e) => {
+  _handleClick = (e, { name }) => {
     this.setState({
-      current: e.key
+      activeItem: name
     });
   }
 
   render() {
+    const { activeItem } = this.state;
+
     return (
-      <Menu
-      onClick={this._handleClick}
-      mode="horizontal"
-      selectedKeys={[this.state.current]}>
-      
-        <Menu.Item key="home">
-          <NavLink to="/">Home</NavLink>
+      <Menu pointing secondary>
+        <Menu.Item exact as={NavLink} to="/" name="home" active={activeItem === "home"} onClick={this._handleClick}>
+          Home
         </Menu.Item>
-        <Menu.Item key="inventory">
-          <NavLink to="/inventory">Inventory</NavLink>
+        <Menu.Item as={NavLink} to="/inventory" name="inventory" active={activeItem === "inventory"} onClick={this._handleClick}>
+          Inventory
         </Menu.Item>
-        <Menu.Item key="about">
-          <NavLink to="/about">About</NavLink>
+        <Menu.Item as={NavLink} to="/about" name="about" active={activeItem === "about"} onClick={this._handleClick}>
+          About
         </Menu.Item>
       </Menu>
     );
