@@ -49,6 +49,7 @@ class ManageInventory extends React.Component {
 
   render() {
     const { name, description, console } = this.state.entry;
+    const { inventory } = this.props;
     return (
       <Grid>
         <Grid.Row>
@@ -81,7 +82,7 @@ class ManageInventory extends React.Component {
 
           </Grid.Column>
           <Grid.Column width={10} className="nice-border">
-            <InventoryDisplay inventory={this.props.inventory} />
+            <InventoryDisplay inventory={inventory} />
           </Grid.Column>
         </Grid.Row>
       </Grid>

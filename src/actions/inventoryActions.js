@@ -1,8 +1,8 @@
 import { LOAD_INVENTORY_SUCCESS } from './actionTypes';
 import inventoryApi from "../api/mockInventoryApi";
 
-export function loadInventorySuccess(entries) {
-  return { type: LOAD_INVENTORY_SUCCESS, entries }
+export function loadInventorySuccess(inventory) {
+  return { type: LOAD_INVENTORY_SUCCESS, inventory }
 }
 // my first thunk
 export function loadInventory() {

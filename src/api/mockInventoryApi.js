@@ -33,14 +33,14 @@ const inventory = [
   }
 ];
 
-function replaceAll(str, replace) {
-  return str.replace(new RegExp('[^a-zA-Z0-9]', 'g'), replace);
-}
+// function replaceAll(str, replace) {
+//   return str.replace(new RegExp('[^a-zA-Z0-9]', 'g'), replace);
+// }
 
 // will be used in saveEntry
-const generateId = (entry) => {
-  return replaceAll(inventory.name, '-').toLowerCase();
-};
+// const generateId = (entry) => {
+//   return replaceAll(inventory.name, '-').toLowerCase();
+// };
 
 class InventoryApi {
   static getInventory() {
