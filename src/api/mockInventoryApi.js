@@ -1,32 +1,34 @@
-import delay from './delay';
+import delay from "./delay";
 
 const inventory = [
   {
-    id: 'the-legend-of-zelda',
+    id: "the-legend-of-zelda",
     name: "The Legend of Zelda",
-    description: "The Legend of Zelda is the first installment of the Zelda series.",
+    description:
+      "The Legend of Zelda is the first installment of the Zelda series.",
     console: "NES"
   },
   {
-    id: 'zelda-ii',
+    id: "zelda-ii",
     name: "Zelda II",
     description: "Zelda II is a hard game...but fun as well.",
     console: "NES"
   },
   {
-    id: 'zelda--a-link-to-the-past',
+    id: "zelda--a-link-to-the-past",
     name: "Zelda: A Link to the Past",
     description: "Best game ever. Fight me.",
     console: "SNES"
   },
   {
-    id: 'zelda--ocarina-of-time',
+    id: "zelda--ocarina-of-time",
     name: "Zelda: Ocarina of Time",
-    description: "First Zelda game I ever played. I got stuck at the Water Temple...",
+    description:
+      "First Zelda game I ever played. I got stuck at the Water Temple...",
     console: "N64"
   },
   {
-    id: 'zelda--majora-s-mask',
+    id: "zelda--majora-s-mask",
     name: "Zelda: Majora's Mask",
     description: "First Zelda game I completed by myself. Pretty fun!",
     console: "N64"
@@ -46,7 +48,7 @@ class InventoryApi {
   static getInventory() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(Object.assign([], inventory))
+        resolve(Object.assign([], inventory));
       }, delay);
     });
   }

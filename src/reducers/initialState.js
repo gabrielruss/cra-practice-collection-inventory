@@ -1,7 +1,9 @@
-const initialState = [{
-  name: "",
-  description: "",
-  console: ""
-}];
+const initialState = [
+  {
+    name: "",
+    description: "",
+    console: ""
+  }
+];
 
 export default initialState;

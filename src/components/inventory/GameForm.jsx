@@ -1,33 +1,39 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Header, Form } from 'semantic-ui-react'
+import React from "react";
+import PropTypes from "prop-types";
+import { Header, Form } from "semantic-ui-react";
 
-
-const GameForm = ({ game, onChange, onSave }) => {
+const GameForm = ({ game, allConsoles, onChange, onSave }) => {
   return (
     <Form.Group>
       <Header>Manage Game</Header>
-      <Form.Input fluid
-        label='Name'
-        name='name'
+      <Form.Input
+        fluid
+        label="Name"
+        name="name"
         value={game.name}
-        placeholder='Name'
+        placeholder="Name"
         className="input-style"
-        onChange={onChange} />
-      <Form.Input fluid
-        label='Description'
-        name='description'
+        onChange={onChange}
+      />
+      <Form.Input
+        fluid
+        label="Description"
+        name="description"
         value={game.description}
-        placeholder='Description'
+        placeholder="Description"
         className="input-style"
-        onChange={onChange} />
-      <Form.Input fluid
-        label='Console'
-        name='console'
+        onChange={onChange}
+      />
+      <Form.Dropdown
+        fluid
+        label="Console"
+        name="console"
+        defaultValue="Select Console"
         value={game.console}
-        placeholder='Console'
+        options={allConsoles}
         className="input-style"
-        onChange={onChange} />
+        onChange={onChange}
+      />
       <Form.Button content="Submit" onClick={onSave} />
     </Form.Group>
   );
@@ -36,7 +42,8 @@ const GameForm = ({ game, onChange, onSave }) => {
 GameForm.propTypes = {
   game: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired,
-  onSave: PropTypes.func.isRequired
+  onSave: PropTypes.func.isRequired,
+  allConsoles: PropTypes.array.isRequired
 };
 
 export default GameForm;

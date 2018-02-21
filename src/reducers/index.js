@@ -1,5 +1,5 @@
-import { combineReducers } from 'redux';
-import inventory from './inventoryReducer';
+import { combineReducers } from "redux";
+import inventory from "./inventoryReducer";
 
 const rootReducer = combineReducers({
   inventory

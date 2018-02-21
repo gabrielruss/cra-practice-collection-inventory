@@ -1,4 +1,4 @@
-import { LOAD_INVENTORY_SUCCESS } from '../actions/actionTypes';
+import { LOAD_INVENTORY_SUCCESS } from "../actions/actionTypes";
 
 export default function inventoryReducer(state = [], action) {
   switch (action.type) {

@@ -1,27 +1,25 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as inventoryActions from '../../actions/inventoryActions';
-import GameForm from './GameForm';
+import React from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as inventoryActions from "../../actions/inventoryActions";
+import GameForm from "./GameForm";
 
 class ManageGamePage extends React.Component {
   constructor(props, context) {
     super(props, context);
 
     this.state = {
-      game: Object.assign({}, this.props.game) 
+      game: Object.assign({}, this.props.game)
     };
   }
 
   render() {
-    return (
-      <GameForm game={this.state.game} />
-    );
+    return <GameForm game={this.state.game} />;
   }
 }
 
 function mapStateToProps(state, ownProps) {
-  let game = { id: '', name: '', description: '', console: '' };
+  let game = { id: "", name: "", description: "", console: "" };
   return {
     game: game
   };

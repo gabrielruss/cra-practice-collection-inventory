@@ -1,6 +1,6 @@
-import React from 'react';
-import { Table } from 'semantic-ui-react';
-import InventoryListRow from './InventoryListRow';
+import React from "react";
+import { Table } from "semantic-ui-react";
+import InventoryListRow from "./InventoryListRow";
 
 const InventoryList = ({ inventory }) => {
   return (
@@ -12,10 +12,8 @@ const InventoryList = ({ inventory }) => {
           <Table.HeaderCell>Console</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
-      <Table.Body >
-        {inventory.map(game =>
-          <InventoryListRow key={game.id} game={game} />
-        )}
+      <Table.Body>
+        {inventory.map(game => <InventoryListRow key={game.id} game={game} />)}
       </Table.Body>
     </Table>
   );
