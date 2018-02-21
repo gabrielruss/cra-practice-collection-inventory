@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from "redux";
 import * as inventoryActions from '../../actions/inventoryActions';
-import { Grid, Header, Form } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 import InventoryList from './InventoryList';
 import '../../styles/App.css';
 
@@ -48,40 +48,11 @@ class ManageInventory extends React.Component {
   }
 
   render() {
-    const { name, description, console } = this.state.entry;
     const { inventory } = this.props;
     return (
       <Grid>
         <Grid.Row>
-          <Grid.Column width={6} className="nice-border">
-            <Header as="h1">Input</Header>
-            <Form.Group>
-              <Form.Input fluid
-                label='Name'
-                name='name'
-                value={name}
-                placeholder='Name'
-                className="input-style"
-                onChange={this._handleInput} />
-              <Form.Input fluid
-                label='Description'
-                name='description'
-                value={description}
-                placeholder='Description'
-                className="input-style"
-                onChange={this._handleInput} />
-              <Form.Input fluid
-                label='Console'
-                name='console'
-                value={console}
-                placeholder='Console'
-                className="input-style"
-                onChange={this._handleInput} />
-              <Form.Button content="Submit" onClick={this._handleSubmit} />
-            </Form.Group>
-
-          </Grid.Column>
-          <Grid.Column width={10} className="nice-border">
+          <Grid.Column width={16} className="nice-border">
             <InventoryList inventory={inventory} />
           </Grid.Column>
         </Grid.Row>
