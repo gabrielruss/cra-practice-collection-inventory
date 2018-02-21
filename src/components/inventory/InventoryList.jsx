@@ -1,17 +1,8 @@
 import React from 'react';
 import { Table } from 'semantic-ui-react';
+import InventoryListRow from './InventoryListRow';
 
-const makeRow = (game, index) => {
-  return (
-    <Table.Row key={index}>
-      <Table.Cell>{game.name}</Table.Cell>
-      <Table.Cell>{game.description}</Table.Cell>
-      <Table.Cell>{game.console}</Table.Cell>
-    </Table.Row>
-  );
-};
-
-const InventoryDisplay = ({ inventory }) => {
+const InventoryList = ({ inventory }) => {
   return (
     <Table celled>
       <Table.Header>
@@ -22,10 +13,12 @@ const InventoryDisplay = ({ inventory }) => {
         </Table.Row>
       </Table.Header>
       <Table.Body >
-        {inventory.map(makeRow)}
+        {inventory.map(game =>
+          <InventoryListRow key={game.id} game={game} />
+        )}
       </Table.Body>
     </Table>
   );
 };
 
-export default InventoryDisplay;
+export default InventoryList;

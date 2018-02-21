@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from "redux";
 import * as inventoryActions from '../../actions/inventoryActions';
 import { Grid, Header, Form } from 'semantic-ui-react'
-import InventoryDisplay from './InventoryDisplay';
+import InventoryList from './InventoryList';
 import '../../styles/App.css';
 
 const emptyForm = {
@@ -82,7 +82,7 @@ class ManageInventory extends React.Component {
 
           </Grid.Column>
           <Grid.Column width={10} className="nice-border">
-            <InventoryDisplay inventory={inventory} />
+            <InventoryList inventory={inventory} />
           </Grid.Column>
         </Grid.Row>
       </Grid>
