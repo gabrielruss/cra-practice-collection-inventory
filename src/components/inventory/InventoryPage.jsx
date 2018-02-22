@@ -1,15 +1,15 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as inventoryActions from '../../actions/inventoryActions';
-import { Grid } from 'semantic-ui-react'
-import InventoryList from './InventoryList';
-import '../../styles/App.css';
+import * as inventoryActions from "../../actions/inventoryActions";
+import { Grid } from "semantic-ui-react";
+import InventoryList from "./InventoryList";
+import "../../styles/App.css";
 
 const emptyForm = {
-  name: '',
-  description: '',
-  console: ''
+  name: "",
+  description: "",
+  console: ""
 };
 
 class ManageInventory extends React.Component {
@@ -33,9 +33,9 @@ class ManageInventory extends React.Component {
     this.setState({
       entry: emptyForm
     });
-  }
+  };
 
-  _handleInput = (e) => {
+  _handleInput = e => {
     const target = e.target;
     const name = target.name;
     const value = target.value;
@@ -45,7 +45,7 @@ class ManageInventory extends React.Component {
     this.setState({
       entry
     });
-  }
+  };
 
   render() {
     const { inventory } = this.props;
@@ -57,20 +57,20 @@ class ManageInventory extends React.Component {
           </Grid.Column>
         </Grid.Row>
       </Grid>
-    )
+    );
   }
 }
 
 function mapStateToProps(state, ownProps) {
-  return {  
+  return {
     inventory: state.inventory
-  }
+  };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(inventoryActions, dispatch)
-  }
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ManageInventory);

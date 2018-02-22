@@ -1,9 +1,4 @@
-const initialState = [
-  {
-    name: "",
-    description: "",
-    console: ""
-  }
-];
-
-export default initialState;
+export default {
+  inventory: [],
+  gameConsoles: []
+};

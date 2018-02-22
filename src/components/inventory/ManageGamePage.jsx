@@ -14,14 +14,25 @@ class ManageGamePage extends React.Component {
   }
 
   render() {
-    return <GameForm game={this.state.game} />;
+    return (
+      <GameForm game={this.state.game} gameConsoles={this.props.gameConsoles} />
+    );
   }
 }
 
 function mapStateToProps(state, ownProps) {
-  let game = { id: "", name: "", description: "", console: "" };
+  let game = { id: "", name: "", description: "", gameConsole: "" };
+  const gameConsolesFormattedForDropdown = state.gameConsoles.map(
+    gameConsole => {
+      return {
+        key: gameConsole.key,
+        value: gameConsole.name
+      };
+    }
+  );
   return {
-    game: game
+    game: game,
+    gameConsoles: gameConsolesFormattedForDropdown
   };
 }
 
@@ -31,4 +42,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default ManageGamePage;
+export default connect(mapStateToProps, mapDispatchToProps)(ManageGamePage);
