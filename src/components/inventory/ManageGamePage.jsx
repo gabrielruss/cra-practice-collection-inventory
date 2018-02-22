@@ -13,20 +13,34 @@ class ManageGamePage extends React.Component {
     };
   }
 
+  updateGameState = (e, data) => {
+    const field = data.name;
+    let game = Object.assign({}, this.state.game);
+    game[field] = data.value;
+    return this.setState({
+      game
+    });
+  };
+
   render() {
     return (
-      <GameForm game={this.state.game} gameConsoles={this.props.gameConsoles} />
+      <GameForm
+        game={this.state.game}
+        gameConsoles={this.props.gameConsoles}
+        onChange={this.updateGameState}
+      />
     );
   }
 }
 
 function mapStateToProps(state, ownProps) {
-  let game = { id: "", name: "", description: "", gameConsole: "" };
+  let game = { id: "", name: "", description: "", consoleId: "" };
   const gameConsolesFormattedForDropdown = state.gameConsoles.map(
     gameConsole => {
       return {
-        key: gameConsole.key,
-        value: gameConsole.name
+        key: gameConsole.id,
+        text: gameConsole.name,
+        value: gameConsole.id
       };
     }
   );

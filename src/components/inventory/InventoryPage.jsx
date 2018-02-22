@@ -20,7 +20,7 @@ class ManageInventory extends React.Component {
       entry: {
         name: "",
         description: "",
-        console: ""
+        consoleId: ""
       }
     };
   }

@@ -24,14 +24,14 @@ const GameForm = ({ game, gameConsoles, onChange, onSave }) => {
         className="input-style"
         onChange={onChange}
       />
-      <Form.Dropdown
+      <Form.Select
         fluid
         label="Console"
-        name="console"
-        defaultValue="Select Console"
-        value={game.console}
-        options={gameConsoles}
+        name="consoleId"
+        placeholder="Select Console"
         className="input-style"
+        value={gameConsoles.key}
+        options={gameConsoles}
         onChange={onChange}
       />
       <Form.Button content="Submit" onClick={onSave} />
