@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Header, Form } from "semantic-ui-react";
+import { Header, Form, Button } from "semantic-ui-react";
 
 const GameForm = ({ game, gameConsoles, onChange, onSave }) => {
   return (
@@ -34,7 +34,7 @@ const GameForm = ({ game, gameConsoles, onChange, onSave }) => {
         options={gameConsoles}
         onChange={onChange}
       />
-      <Form.Button content="Submit" onClick={onSave} />
+      <Button primary type="submit" content="Submit" onClick={onSave} />
     </Form.Group>
   );
 };

@@ -6,11 +6,12 @@ import InventoryPage from "./inventory/InventoryPage";
 import ManageGamePage from "./inventory/ManageGamePage";
 import AboutPage from "./about/AboutPage";
 import Header from "./common/Header";
+import { Container } from "semantic-ui-react";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <Container>
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
@@ -19,7 +20,7 @@ class App extends Component {
           <Route exact path="/game/:id" component={ManageGamePage} />
           <Route path="/about" component={AboutPage} />
         </Switch>
-      </div>
+      </Container>
     );
   }
 }

@@ -1,12 +1,20 @@
-import { LOAD_INVENTORY_SUCCESS, SAVE_GAME_SUCCESS } from "./actionTypes";
+import {
+  LOAD_INVENTORY_SUCCESS,
+  SAVE_GAME_SUCCESS,
+  UPDATE_GAME_SUCCESS
+} from "./actionTypes";
 import inventoryApi from "../api/mockInventoryApi";
 
 export function loadInventorySuccess(inventory) {
   return { type: LOAD_INVENTORY_SUCCESS, inventory };
 }
 
-export function saveGameSuccess(savedGame) {
-  return { type: SAVE_GAME_SUCCESS, savedGame };
+export function saveGameSuccess(game) {
+  return { type: SAVE_GAME_SUCCESS, game };
+}
+
+export function updateGameSuccess(game) {
+  return { type: UPDATE_GAME_SUCCESS, game };
 }
 
 // my first thunk
@@ -26,7 +34,7 @@ export function loadInventory() {
 export function saveToInventory(game) {
   return function(dispatch, getState) {
     return inventoryApi
-      .saveToInventory()
+      .saveToInventory(game)
       .then(savedGame => {
         dispatch(saveGameSuccess(savedGame));
       })

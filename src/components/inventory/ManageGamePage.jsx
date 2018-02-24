@@ -22,12 +22,18 @@ class ManageGamePage extends React.Component {
     });
   };
 
+  onSave = () => {
+    this.props.actions.saveToInventory(this.state.game);
+    
+  };
+
   render() {
     return (
       <GameForm
         game={this.state.game}
         gameConsoles={this.props.gameConsoles}
         onChange={this.updateGameState}
+        onSave={this.onSave}
       />
     );
   }

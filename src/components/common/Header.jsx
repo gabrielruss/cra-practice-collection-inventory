@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Menu } from "semantic-ui-react";
+import { Menu, Dropdown } from "semantic-ui-react";
 
 class Header extends React.Component {
   constructor(props) {
@@ -50,6 +50,18 @@ class Header extends React.Component {
         >
           About
         </Menu.Item>
+        <Menu.Menu position="right">
+          <Dropdown item icon="sidebar">
+            <Dropdown.Menu>
+              <Dropdown.Item>Open</Dropdown.Item>
+              <Dropdown.Item>Save...</Dropdown.Item>
+              <Dropdown.Item>Edit Permissions</Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Header>Export</Dropdown.Header>
+              <Dropdown.Item>Share</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </Menu.Menu>
       </Menu>
     );
   }

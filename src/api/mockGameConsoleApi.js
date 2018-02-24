@@ -28,38 +28,19 @@ const gameConsoles = [
   }
 ];
 
-function replaceAll(str, replace) {
-  return str.replace(new RegExp("[^a-zA-Z0-9]", "g"), replace);
-}
+// function replaceAll(str, replace) {
+//   return str.replace(new RegExp("[^a-zA-Z0-9]", "g"), replace);
+// }
 
-const generateId = game => {
-  return replaceAll(gameConsoles.name, "-").toLowerCase();
-};
+// const generateId = game => {
+//   return replaceAll(gameConsoles.name, "-").toLowerCase();
+// };
 
 class GameConsoleApi {
   static getAllGameConsoles() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(Object.assign([], gameConsoles));
-      }, delay);
-    });
-  }
-
-  static saveToInventory(game) {
-    game = Object.assign({}, game); // to avoid manipulating object passed in.
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (game.id) {
-          const existingGameIndex = gameConsoles.findIndex(
-            a => a.id == game.id
-          );
-          gameConsoles.splice(existingGameIndex, 1, game);
-        } else {
-          game.id = generateId(game);
-          gameConsoles.push(game);
-        }
-
-        resolve(game);
       }, delay);
     });
   }
