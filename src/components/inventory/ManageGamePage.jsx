@@ -1,7 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import { bindActionCreators, compose } from "redux";
 import * as inventoryActions from "../../actions/inventoryActions";
+import { withRouter } from "react-router-dom";
 import GameForm from "./GameForm";
 
 class ManageGamePage extends React.Component {
@@ -24,7 +26,7 @@ class ManageGamePage extends React.Component {
 
   onSave = () => {
     this.props.actions.saveToInventory(this.state.game);
-    
+    this.props.history.push("/inventory");
   };
 
   render() {
@@ -38,6 +40,16 @@ class ManageGamePage extends React.Component {
     );
   }
 }
+
+ManageGamePage.propTypes = {
+  game: PropTypes.object.isRequired,
+  gameConsoles: PropTypes.object.isRequired,
+  actions: PropTypes.object.isRequired
+};
+
+ManageGamePage.contextTypes = {
+  router: PropTypes.object
+};
 
 function mapStateToProps(state, ownProps) {
   let game = { id: "", name: "", description: "", consoleId: "" };
@@ -62,4 +74,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManageGamePage);
+export default compose(
+  withRouter,
+  connect(mapStateToProps, mapDispatchToProps)
+)(ManageGamePage);
