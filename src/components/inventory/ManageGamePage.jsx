@@ -15,6 +15,14 @@ class ManageGamePage extends React.Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(this.props.game.id !== nextProps.game.id) {
+      this.setState({
+        game: Object.assign({}, nextProps.game)
+      })
+    }
+  }
+
   updateGameState = (e, data) => {
     const field = data.name;
     let game = Object.assign({}, this.state.game);
@@ -53,7 +61,7 @@ ManageGamePage.contextTypes = {
 
 function getGameById(inventory, id) {
   const game = inventory.filter(game => game.id === id);
-  return (game.length) ? game[0] : null;
+  return game.length ? game[0] : null;
 }
 
 function mapStateToProps(state, ownProps) {
