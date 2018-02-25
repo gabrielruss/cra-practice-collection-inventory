@@ -1,6 +1,7 @@
 import React from "react";
 import reactLogo from '../../assets/reactjs-logo.jpg';
 import { Grid, Header, Button, Embed } from "semantic-ui-react";
+import { NavLink } from "react-router-dom";
 
 const HomePage = () => {
   return (
@@ -12,7 +13,7 @@ const HomePage = () => {
       </Grid.Row>
       <Grid.Row>
         <Grid.Column>
-          <Button primary content="View Game Inventory" />
+          <Button as={NavLink} to="/inventory" primary content="View Game Inventory" />
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>

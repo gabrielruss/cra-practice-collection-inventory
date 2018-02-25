@@ -24,7 +24,7 @@ const InventoryListRow = ({ game, gameConsoles }) => {
         <Link to={`/game/${game.id}`}>{game.name}</Link>
       </Table.Cell>
       <Table.Cell>{game.description}</Table.Cell>
-      <Table.Cell>{consoleName || ""}</Table.Cell>
+      <Table.Cell>{consoleName}</Table.Cell>
     </Table.Row>
   );
 };

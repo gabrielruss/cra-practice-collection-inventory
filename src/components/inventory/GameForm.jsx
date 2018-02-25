@@ -30,7 +30,7 @@ const GameForm = ({ game, gameConsoles, onChange, onSave }) => {
         name="consoleId"
         placeholder="Select Console"
         className="input-style"
-        value={gameConsoles.key}
+        value={game.consoleId}
         options={gameConsoles}
         onChange={onChange}
       />

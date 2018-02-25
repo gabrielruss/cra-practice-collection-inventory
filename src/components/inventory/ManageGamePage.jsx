@@ -51,12 +51,23 @@ ManageGamePage.contextTypes = {
   router: PropTypes.object
 };
 
+function getGameById(inventory, id) {
+  const game = inventory.filter(game => game.id === id);
+  return (game.length) ? game[0] : null;
+}
+
 function mapStateToProps(state, ownProps) {
+  const gameId = ownProps.match.params.id;
+
   let game = { id: "", name: "", description: "", consoleId: "" };
+
+  if (gameId && state.inventory.length) {
+    game = getGameById(state.inventory, gameId);
+  }
+
   const gameConsolesFormattedForDropdown = state.gameConsoles.map(
     gameConsole => {
       return {
-        key: gameConsole.id,
         text: gameConsole.name,
         value: gameConsole.id
       };
