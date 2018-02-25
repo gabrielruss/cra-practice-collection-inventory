@@ -4,6 +4,7 @@ import {
   UPDATE_GAME_SUCCESS
 } from "./actionTypes";
 import inventoryApi from "../api/mockInventoryApi";
+import { beginAjaxCall } from "./ajaxStatusAction";
 
 export function loadInventorySuccess(inventory) {
   return { type: LOAD_INVENTORY_SUCCESS, inventory };
@@ -20,6 +21,7 @@ export function updateGameSuccess(game) {
 // my first thunk
 export function loadInventory() {
   return function(dispatch) {
+    dispatch(beginAjaxCall());
     return inventoryApi
       .getInventory()
       .then(inventory => {
@@ -33,6 +35,7 @@ export function loadInventory() {
 
 export function saveToInventory(game) {
   return function(dispatch, getState) {
+    dispatch(beginAjaxCall());
     return inventoryApi
       .saveToInventory(game)
       .then(savedGame => {

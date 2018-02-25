@@ -27,29 +27,26 @@ class Header extends React.Component {
           as={NavLink}
           to="/"
           name="home"
+          content="Home"
           active={activeItem === "home"}
           onClick={this._handleClick}
-        >
-          Home
-        </Menu.Item>
+        />
         <Menu.Item
           as={NavLink}
           to="/inventory"
           name="inventory"
+          content="Inventory"
           active={activeItem === "inventory"}
           onClick={this._handleClick}
-        >
-          Inventory
-        </Menu.Item>
+        />
         <Menu.Item
           as={NavLink}
           to="/about"
           name="about"
+          content="About"
           active={activeItem === "about"}
           onClick={this._handleClick}
-        >
-          About
-        </Menu.Item>
+        />
         <Menu.Menu position="right">
           <Dropdown item icon="sidebar">
             <Dropdown.Menu>

@@ -1,4 +1,5 @@
 export default {
   inventory: [],
-  gameConsoles: []
+  gameConsoles: [],
+  ajaxCallsInProgress: 0
 };
