@@ -9,7 +9,7 @@ import "../../styles/App.css";
 
 class ManageInventory extends React.Component {
   render() {
-    const { inventory } = this.props;
+    const { inventory, gameConsoles } = this.props;
     return (
       <Grid>
         <Grid.Row>
@@ -22,7 +22,7 @@ class ManageInventory extends React.Component {
               content="Add New Game"
               onClick={this.redirectToManageGamePage}
             />
-            <InventoryList inventory={inventory} />
+            <InventoryList inventory={inventory} gameConsoles={gameConsoles}/>
           </Grid.Column>
         </Grid.Row>
       </Grid>
@@ -32,7 +32,8 @@ class ManageInventory extends React.Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    inventory: state.inventory
+    inventory: state.inventory,
+    gameConsoles: state.gameConsoles
   };
 }
 

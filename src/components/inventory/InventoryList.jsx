@@ -2,7 +2,7 @@ import React from "react";
 import { Table } from "semantic-ui-react";
 import InventoryListRow from "./InventoryListRow";
 
-const InventoryList = ({ inventory }) => {
+const InventoryList = ({ inventory, gameConsoles }) => {
   return (
     <Table celled>
       <Table.Header>
@@ -13,7 +13,7 @@ const InventoryList = ({ inventory }) => {
         </Table.Row>
       </Table.Header>
       <Table.Body>
-        {inventory.map(game => <InventoryListRow key={game.id} game={game} />)}
+        {inventory.map(game => <InventoryListRow key={game.id} game={game} gameConsoles={gameConsoles} />)}
       </Table.Body>
     </Table>
   );

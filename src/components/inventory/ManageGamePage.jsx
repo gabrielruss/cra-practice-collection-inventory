@@ -43,7 +43,7 @@ class ManageGamePage extends React.Component {
 
 ManageGamePage.propTypes = {
   game: PropTypes.object.isRequired,
-  gameConsoles: PropTypes.object.isRequired,
+  gameConsoles: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
 };
 

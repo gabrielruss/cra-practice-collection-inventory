@@ -6,32 +6,32 @@ const inventory = [
     name: "The Legend of Zelda",
     description:
       "The Legend of Zelda is the first installment of the Zelda series.",
-    consoleId: "NES"
+    consoleId: "nes"
   },
   {
     id: "zelda-ii",
     name: "Zelda II",
     description: "Zelda II is a hard game...but fun as well.",
-    consoleId: "NES"
+    consoleId: "nes"
   },
   {
     id: "zelda--a-link-to-the-past",
     name: "Zelda: A Link to the Past",
     description: "Best game ever. Fight me.",
-    consoleId: "SNES"
+    consoleId: "snes"
   },
   {
     id: "zelda--ocarina-of-time",
     name: "Zelda: Ocarina of Time",
     description:
       "First Zelda game I ever played. I got stuck at the Water Temple...",
-    consoleId: "N64"
+    consoleId: "n64"
   },
   {
     id: "zelda--majora-s-mask",
     name: "Zelda: Majora's Mask",
     description: "First Zelda game I completed by myself. Pretty fun!",
-    consoleId: "N64"
+    consoleId: "n64"
   }
 ];
 
