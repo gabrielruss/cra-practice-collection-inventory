@@ -14,7 +14,7 @@ class ManageInventory extends React.Component {
       <Grid>
         <Grid.Row>
           <Grid.Column width={16}>
-            <Header content="Game Inventory" />
+            <Header as="h1" content="Game Inventory" />
             <Button
               as={Link}
               to="/game"
