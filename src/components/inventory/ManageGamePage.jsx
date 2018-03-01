@@ -11,12 +11,13 @@ class ManageGamePage extends React.Component {
     super(props, context);
 
     this.state = {
-      game: Object.assign({}, this.props.game)
+      game: Object.assign({}, this.props.game),
+      saving: false
     };
   }
 
   componentWillReceiveProps(nextProps) {
-    if(this.props.game.id !== nextProps.game.id) {
+    if (this.props.game.id !== nextProps.game.id) {
       this.setState({
         game: Object.assign({}, nextProps.game)
       })
@@ -33,9 +34,21 @@ class ManageGamePage extends React.Component {
   };
 
   onSave = () => {
-    this.props.actions.saveToInventory(this.state.game);
-    this.props.history.push("/inventory");
+    this.setState({
+      saving: true
+    });
+    this.props.actions.saveToInventory(this.state.game)
+      .then(() => {
+        this.redirect();
+      });
   };
+
+  redirect() {
+    this.props.history.push("/inventory");
+    this.setState({
+      saving: false
+    });
+  }
 
   render() {
     return (
@@ -44,6 +57,7 @@ class ManageGamePage extends React.Component {
         gameConsoles={this.props.gameConsoles}
         onChange={this.updateGameState}
         onSave={this.onSave}
+        saving={this.state.saving}
       />
     );
   }

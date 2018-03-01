@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Header, Form, Button } from "semantic-ui-react";
 
-const GameForm = ({ game, gameConsoles, onChange, onSave }) => {
+const GameForm = ({ game, gameConsoles, onChange, onSave, saving }) => {
   return (
     <Form.Group>
       <Header>Manage Game</Header>
@@ -34,7 +34,7 @@ const GameForm = ({ game, gameConsoles, onChange, onSave }) => {
         options={gameConsoles}
         onChange={onChange}
       />
-      <Button primary type="submit" content="Submit" onClick={onSave} />
+      <Button primary type="submit" content="Submit" onClick={onSave} loading={saving} disabled={saving}/>
     </Form.Group>
   );
 };
@@ -43,7 +43,8 @@ GameForm.propTypes = {
   game: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired,
   onSave: PropTypes.func.isRequired,
-  gameConsoles: PropTypes.array.isRequired
+  gameConsoles: PropTypes.array.isRequired,
+  saving: PropTypes.bool.isRequired
 };
 
 export default GameForm;
