@@ -20,7 +20,7 @@ export function updateGameSuccess(game) {
 
 // my first thunk
 export function loadInventory() {
-  return function(dispatch) {
+  return function (dispatch) {
     dispatch(beginAjaxCall());
     return inventoryApi
       .getInventory()
@@ -34,12 +34,12 @@ export function loadInventory() {
 }
 
 export function saveToInventory(game) {
-  return function(dispatch, getState) {
+  return function (dispatch, getState) {
     dispatch(beginAjaxCall());
     return inventoryApi
       .saveToInventory(game)
       .then(savedGame => {
-        dispatch(saveGameSuccess(savedGame));
+        savedGame.id ? dispatch(updateGameSuccess(savedGame)) : dispatch(saveGameSuccess(savedGame));
       })
       .catch(error => {
         throw error;

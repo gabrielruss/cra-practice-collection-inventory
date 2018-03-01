@@ -15,9 +15,9 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/inventory" component={InventoryPage} />
+          <Route path="/inventory" component={InventoryPage} />
           <Route exact path="/game" component={ManageGamePage} />
-          <Route exact path="/game/:id" component={ManageGamePage} />
+          <Route path="/game/:id" component={ManageGamePage} />
           <Route path="/about" component={AboutPage} />
         </Switch>
       </Container>
