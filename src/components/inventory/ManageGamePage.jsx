@@ -5,6 +5,7 @@ import { bindActionCreators, compose } from "redux";
 import * as inventoryActions from "../../actions/inventoryActions";
 import { withRouter } from "react-router-dom";
 import GameForm from "./GameForm";
+import toastr from "toastr";
 
 class ManageGamePage extends React.Component {
   constructor(props, context) {
@@ -20,7 +21,7 @@ class ManageGamePage extends React.Component {
     if (this.props.game.id !== nextProps.game.id) {
       this.setState({
         game: Object.assign({}, nextProps.game)
-      })
+      });
     }
   }
 
@@ -37,14 +38,22 @@ class ManageGamePage extends React.Component {
     this.setState({
       saving: true
     });
-    this.props.actions.saveToInventory(this.state.game)
+    this.props.actions
+      .saveToInventory(this.state.game)
       .then(() => {
         this.redirect();
+      })
+      .catch(error => {
+        toastr.error(error);
+        this.setState({
+          saving: false
+        });
       });
   };
 
   redirect() {
     this.props.history.push("/inventory");
+    toastr.success("Game saved");
     this.setState({
       saving: false
     });

@@ -8,6 +8,7 @@ import { loadInventory } from "./actions/inventoryActions";
 import { loadGameConsoles } from "./actions/gameConsoleActions";
 import App from "./components/App";
 import "semantic-ui-css/semantic.min.css";
+import "../node_modules/toastr/build/toastr.min.css";
 import createBrowserHistory from "history/createBrowserHistory";
 import registerServiceWorker from "./registerServiceWorker";
 

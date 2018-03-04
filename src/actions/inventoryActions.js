@@ -4,7 +4,7 @@ import {
   UPDATE_GAME_SUCCESS
 } from "./actionTypes";
 import inventoryApi from "../api/mockInventoryApi";
-import { beginAjaxCall } from "./ajaxStatusAction";
+import { beginAjaxCall, ajaxCallError } from "./ajaxStatusAction";
 
 export function loadInventorySuccess(inventory) {
   return { type: LOAD_INVENTORY_SUCCESS, inventory };
@@ -42,6 +42,7 @@ export function saveToInventory(game) {
         savedGame.id ? dispatch(updateGameSuccess(savedGame)) : dispatch(saveGameSuccess(savedGame));
       })
       .catch(error => {
+        dispatch(ajaxCallError(error));
         throw error;
       });
   };
